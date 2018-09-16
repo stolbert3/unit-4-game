@@ -1,28 +1,25 @@
 $(document).ready(function() {
     var wins = 0;
     var losses = 0;
-    var goalScore = 0;
     var userScore = 0;
-    var yellowValue = 0;
-    var blueValue = 0;
-    var emeraldValue = 0;
-    var purpleValue = 0;
-    var crystalValue = 0;
     var newScore = 0;
 
     $('#newGameButton').on('click', () => {
+        console.log("new game started");
         userScore = 0;
+        console.log("userScore: " + userScore);
         newScore = 0;
-        goalScore = Math.floor(Math.random()*10);
-        console.log(goalScore);
-        yellowValue = Math.floor(Math.random()*10);
-        console.log(yellowValue);
-        blueValue = Math.floor(Math.random()*10);
-        console.log(blueValue);
-        emeraldValue = Math.floor(Math.random()*10);
-        console.log(emeraldValue);
-        purpleValue = Math.floor(Math.random()*10);
-        console.log(purpleValue);
+        console.log("newScore: " + newScore);
+        var goalScore = Math.floor(Math.random()*10);
+        console.log("goalScore: " + goalScore);
+        var yellowValue = Math.floor(Math.random()*10);
+        console.log("yellowValue: " + yellowValue);
+        var blueValue = Math.floor(Math.random()*10);
+        console.log("blueValue: " + blueValue);
+        var emeraldValue = Math.floor(Math.random()*10);
+        console.log("emeraldValue: " + emeraldValue);
+        var purpleValue = Math.floor(Math.random()*10);
+        console.log("purpleValue: " + purpleValue);
         $("#goalScoreNumber").text(goalScore);
         $("#userScoreNumber").text(userScore);
         //display new goal score
@@ -32,39 +29,50 @@ $(document).ready(function() {
         $('#yellow').on('click', function() {
             crystalValue = yellowValue;
             gameCounter(userScore, goalScore, crystalValue);
+            console.log("yellow selected");
         });
 
-        $('#blue').on('click', function(){
+        $('#blue').on('click', function() {
             crystalValue = blueValue;
             gameCounter(userScore, goalScore, crystalValue);
+            console.log("blue selected");
         });
 
         $('#emerald').on('click', function() {
             crystalValue = emeraldValue;
             gameCounter(userScore, goalScore, crystalValue);
+            console.log("emerald selected");
         });
     
-        $('#purple').on('click', function(){
-            crystalValue = emeraldValue;
+        $('#purple').on('click', function() {
+            crystalValue = purpleValue;
             gameCounter(userScore, goalScore, crystalValue);
+            console.log("purple selected");
         });
     });
 
     function gameCounter(userNum, goalNum, crystalNum) {
         newScore = crystalNum + userNum;
-            if (newScore < goalNum) {
-                $('#userScoreNumber').text(newScore);
-                userScore = newScore
-            }
-            else if (newScore > goalNum) {
-                $('#userScoreNumber').text(newScore);
-                alert("You lost! Click New Game to try again.");
-                $("#lossesNumber").text(losses + 1);
-            }
-            else if (newScore === goalNum) {
-                $('#userScoreNumber').text(newScore);
-                alert("You won!!! Click New Game to play again.");
-                $('#winsNumber').text(wins + 1);
-            };
+        if (newScore < goalNum) {
+            $('#userScoreNumber').text(newScore);
+            userScore = newScore;
+            console.log("keep going");
+            console.log("userScore: " + userScore);
+            console.log("newScore: " + newScore);
+        }
+        else if (newScore > goalNum) {
+            $('#userScoreNumber').text(newScore);
+            alert("You lost! Click New Game to try again.");
+            $("#lossesNumber").text(losses + 1);
+            console.log("lose");
+            console.log(newScore);
+        }
+        else if (newScore === goalNum) {
+            $('#userScoreNumber').text(newScore);
+            alert("You won!!! Click New Game to play again.");
+            $('#winsNumber').text(wins + 1);
+            console.log("win");
+            console.log(newScore);
+        };
     };
 });

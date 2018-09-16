@@ -42,3 +42,10 @@ body{
 .counterRow, .winLossCounter {
     text-align: center;
 }
+
+#newGameButton {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}

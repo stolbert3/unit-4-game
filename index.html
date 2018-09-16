@@ -6,6 +6,7 @@
     <title>Crystal Game</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
@@ -16,37 +17,43 @@
         <h5>Instructions:</h5>
         <p>
             <ul>
-                <li>You will be given a random number at the start of the game.</li>
-                <li>There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score.</li>
-                <li>You win the game by matching your total score to a random number. You lose the game if your total score goes above the random number.</li>
+                <li>You will be given a random <strong>GOAL SCORE</strong> at the start of the game.</li>
+                <li>There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your <strong>TOTAL SCORE</strong>.</li>
                 <li>The value of each crystal is hidden from you until you click on it.</li>
+                <li>You win the game by matching your total score to a random number. You lose the game if your total score goes above the random number.</li>
                 <li>Each time the game restarts, the value of each crystal will change.</li>
             </ul>
         </p>
     </div>
 
-
-    <div class="counter">
-        <h6>Wins</h6>
-        <h6>Losses</h6>
-    </div>
-
-    <div class="crystals">
-        <div class = "row">
-            <img src="assets/images/yellowGem.jpg">
-            <img src="assets/images/blueGem.jpg">
-            <img src="assets/images/emeraldGem.jpg">
-            <img src="assets/images/purpleGem.jpg">
+    <div class="winLossCounter">
+        <div class="counter" id="wins">
+            <h6>Wins:</h6>
+            <h3>#</h3>
+        </div>
+        <div class="counter" id="losses">
+            <h6>Losses:</h6>
+            <h3>#</h3>
         </div>
     </div>
 
-    <div class="guessNumber">
-        <h3>#</h3>
+    <div class="crystals">
+        <div class = "crystalButtons">
+            <button id="yellow" class="btn btn-outline-secondary" value="1"><img src="assets/images/yellowGem.jpg" id="yellowImg"></button>
+            <button id="blue" class="btn btn-outline-secondary" value="2"><img src="assets/images/blueGem.jpg" id="blueImg"></button>
+            <button id="emerald" class="btn btn-outline-secondary" value="3"><img src="assets/images/emeraldGem.jpg" id="emeraldImg"></button>
+            <button id="purple" class="btn btn-outline-secondary" value="4"><img src="assets/images/purpleGem.jpg" id="purpleImg"></button>
+        </div>
     </div>
-
-    <div class="userScore">
-        <h6>Your total score is:</h6>
-        <h3>#</h3>
+    <div class="counterRow">
+        <div class="counter" id="goalScore">
+            <h6>Goal Score:</h6>
+            <h3>#</h3>
+        </div>
+        <div class="counter" id="userScore">
+            <h6>Your Total Score:</h6>
+            <h3>#</h3>
+        </div>
     </div>
 
 </body>
